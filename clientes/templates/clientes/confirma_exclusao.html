@@ -1,0 +1,26 @@
+{% extends "clientes/base.html" %}
+
+{% block titulo %}
+Exclusão de clientes
+{% endblock titulo %}
+
+{% block conteudo %}
+<div class="card">
+    <div class="card-header">
+        <font color="red"><h5>Realmente deseja excluir os dados do cliente abaixo?</h5></font>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title"><b>Nome:</b> {{cliente.nome}}</h5>
+        <h5 class="card-title"><b>Sexo:</b> {{cliente.sexo}}</h5>
+        <h5 class="card-title"><b>Data de Nascimento:</b> {{cliente.data_nascimento}}</h5>
+        <h5 class="card-title"><b>E-mail:</b> {{cliente.email}}</h5>
+        <h5 class="card-title"><b>Profissão: </b>{{cliente.profissao}}</h5>
+        <form method="post">
+            {% csrf_token %}
+            <a href="{{request.META.HTTP_REFERER}}" class="btn btn-primary">VOLTAR</a>
+            <button class="btn btn-danger" type="submit">EXCLUIR</button>
+        </form>
+    </div>
+</div>
+
+{% endblock conteudo %}

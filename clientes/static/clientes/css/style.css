@@ -1,0 +1,16 @@
+body{
+    padding-top: 4.5rem;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+}
+
+body {
+    text-align: inherit;
+    background-color: hsla(50, 41%, 25%, 0.25);
+    font-family: Comic Sans MS, Comic Sans, cursive;
+}
+
+h2{
+    text-align: center;
+    padding-bottom: 20px;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+}
