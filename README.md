@@ -20,6 +20,7 @@ Duas opções são dadas caso não queira fazer a remoção ou caso realmente de
 ![image](https://user-images.githubusercontent.com/87100340/138941646-50b91624-716e-44ab-be0a-e5e6285fef6e.png)
 
 *paths:
+
 ![image](https://user-images.githubusercontent.com/87100340/138941847-bd118ad0-c64a-4b38-b566-e0a5261ff6da.png)
 
 -Html com código Django para a tela de exclusão:
