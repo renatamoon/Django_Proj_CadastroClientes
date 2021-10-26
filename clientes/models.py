@@ -15,7 +15,6 @@ class Cliente(models.Model):
     profissao = models.CharField(max_length=50, null=False, blank=False)
     sexo = models.CharField(max_length=1, choices=SEXO_CHOICES, blank=False, null=False)
     observacao = models.TextField(max_length=200, blank=False, null=False)
-    foto = models.FileField(upload_to="media/%Y/%m/")
 
     def __str__(self):
         return self.nome

@@ -48,7 +48,7 @@ def editar_cliente(request, id):
         profissao = form.cleaned_data["profissao"]
         observacao = form.cleaned_data["observacao"]
         cliente_novo = cliente.Cliente(nome=nome, sexo=sexo, data_nascimento=data_nascimento, email=email,
-                                       profissao=profissao, observacao=observacao, foto=foto)
+                                       profissao=profissao, observacao=observacao)
         cliente_service.editar_cliente(cliente_antigo, cliente_novo)
         return redirect('listar_clientes')
     return render(request, 'clientes/form_cliente.html', {'form': form})
