@@ -109,14 +109,41 @@ Duas opções são dadas caso não queira fazer a remoção ou caso realmente de
 
 ![image](https://user-images.githubusercontent.com/87100340/138941646-50b91624-716e-44ab-be0a-e5e6285fef6e.png)
 
-*paths:
+*Rotas:
+```  
+  urlpatterns = [
+    path('listar', listar_clientes, name='listar_clientes'),
+    path('cadastrar', inserir_cliente, name='cadastrar_cliente'),
+    path('listar/<int:id>', listar_cliente_id, name='listar_cliente_id'),
+    path('editar/<int:id>', editar_cliente, name='editar_cliente'),
+    path('remover/<int:id>', remover_cliente, name='remover_cliente')
+]
+  ```
+-código para a tela de exclusão:
 
-![image](https://user-images.githubusercontent.com/87100340/138941847-bd118ad0-c64a-4b38-b566-e0a5261ff6da.png)
+  ```
+  def editar_cliente(request, id):
+    cliente_antigo = cliente_service.listar_cliente_id(id)
+    form = ClienteForm(request.POST or None, instance=cliente_antigo)
+    if form.is_valid():
+        nome = form.cleaned_data["nome"]
+        sexo = form.cleaned_data["sexo"]
+        data_nascimento = form.cleaned_data["data_nascimento"]
+        email = form.cleaned_data["email"]
+        profissao = form.cleaned_data["profissao"]
+        observacao = form.cleaned_data["observacao"]
+        cliente_novo = cliente.Cliente(nome=nome, sexo=sexo, data_nascimento=data_nascimento, email=email,
+                                       profissao=profissao, observacao=observacao)
+        cliente_service.editar_cliente(cliente_antigo, cliente_novo)
+        return redirect('listar_clientes')
+    return render(request, 'clientes/form_cliente.html', {'form': form})
 
--Html com código Django para a tela de exclusão:
+def remover_cliente(request, id):
+    cliente = cliente_service.listar_cliente_id(id)
+    if request.method == "POST":
+        cliente_service.remover_cliente(cliente)
+        return redirect('listar_clientes')
+    return render(request, 'clientes/confirma_exclusao.html', {'cliente': cliente})
 
-![image](https://user-images.githubusercontent.com/87100340/138941981-7b79b196-57fe-4e0b-9164-43a03a04e8ea.png)
+ ```
 
--Funções para as ações de list, remove, create e edit:
-
-![image](https://user-images.githubusercontent.com/87100340/138942173-8242709b-e4a4-4bc6-95c9-930b36216999.png)
