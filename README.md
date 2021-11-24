@@ -2,7 +2,7 @@
 
 CADASTRO DE CLIENTES + CRUD
 
-<iREGISTER AND CRUD OF CUSTOMERS</i>
+<i>REGISTER AND CRUD OF CUSTOMERS</i>
 
 <p align="center">
   <a href="#projeto">Sobre o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
